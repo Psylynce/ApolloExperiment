@@ -13,6 +13,12 @@
 		5C28E59B205AB6A7000C2C28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C28E599205AB6A7000C2C28 /* Main.storyboard */; };
 		5C28E59D205AB6A7000C2C28 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C28E59C205AB6A7000C2C28 /* Assets.xcassets */; };
 		5C28E5A0205AB6A7000C2C28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C28E59E205AB6A7000C2C28 /* LaunchScreen.storyboard */; };
+		5C28E5A9205AB970000C2C28 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5A8205AB970000C2C28 /* Operation.swift */; };
+		5C28E5AB205AB99A000C2C28 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5AA205AB99A000C2C28 /* Query.swift */; };
+		5C28E5AD205AB9B1000C2C28 /* GraphQLOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5AC205AB9B1000C2C28 /* GraphQLOperation.swift */; };
+		5C28E5B2205ABC0F000C2C28 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5B1205ABC0F000C2C28 /* Dictionary+Extensions.swift */; };
+		5C28E5B5205AC6E9000C2C28 /* GithubModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5B4205AC6E9000C2C28 /* GithubModels.swift */; };
+		5C28E5B8205AC71A000C2C28 /* GithubQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5B7205AC71A000C2C28 /* GithubQueries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		5C28E59C205AB6A7000C2C28 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C28E59F205AB6A7000C2C28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C28E5A1205AB6A7000C2C28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C28E5A8205AB970000C2C28 /* Operation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		5C28E5AA205AB99A000C2C28 /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		5C28E5AC205AB9B1000C2C28 /* GraphQLOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLOperation.swift; sourceTree = "<group>"; };
+		5C28E5B1205ABC0F000C2C28 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
+		5C28E5B4205AC6E9000C2C28 /* GithubModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubModels.swift; sourceTree = "<group>"; };
+		5C28E5B7205AC71A000C2C28 /* GithubQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubQueries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +68,10 @@
 		5C28E592205AB6A7000C2C28 /* ApolloExperiment */ = {
 			isa = PBXGroup;
 			children = (
+				5C28E5B6205AC70A000C2C28 /* Queries */,
+				5C28E5B3205AC6C8000C2C28 /* Models */,
+				5C28E5B0205ABBFA000C2C28 /* Extensions */,
+				5C28E5A7205AB948000C2C28 /* Networking */,
 				5C28E593205AB6A7000C2C28 /* AppDelegate.swift */,
 				5C28E595205AB6A7000C2C28 /* FirstViewController.swift */,
 				5C28E597205AB6A7000C2C28 /* SecondViewController.swift */,
@@ -65,6 +81,40 @@
 				5C28E5A1205AB6A7000C2C28 /* Info.plist */,
 			);
 			path = ApolloExperiment;
+			sourceTree = "<group>";
+		};
+		5C28E5A7205AB948000C2C28 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5C28E5A8205AB970000C2C28 /* Operation.swift */,
+				5C28E5AA205AB99A000C2C28 /* Query.swift */,
+				5C28E5AC205AB9B1000C2C28 /* GraphQLOperation.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5C28E5B0205ABBFA000C2C28 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5C28E5B1205ABC0F000C2C28 /* Dictionary+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5C28E5B3205AC6C8000C2C28 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5C28E5B4205AC6E9000C2C28 /* GithubModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5C28E5B6205AC70A000C2C28 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				5C28E5B7205AC71A000C2C28 /* GithubQueries.swift */,
+			);
+			path = Queries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,9 +189,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C28E5AB205AB99A000C2C28 /* Query.swift in Sources */,
+				5C28E5AD205AB9B1000C2C28 /* GraphQLOperation.swift in Sources */,
 				5C28E598205AB6A7000C2C28 /* SecondViewController.swift in Sources */,
+				5C28E5B8205AC71A000C2C28 /* GithubQueries.swift in Sources */,
+				5C28E5B2205ABC0F000C2C28 /* Dictionary+Extensions.swift in Sources */,
+				5C28E5B5205AC6E9000C2C28 /* GithubModels.swift in Sources */,
 				5C28E594205AB6A7000C2C28 /* AppDelegate.swift in Sources */,
 				5C28E596205AB6A7000C2C28 /* FirstViewController.swift in Sources */,
+				5C28E5A9205AB970000C2C28 /* Operation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
