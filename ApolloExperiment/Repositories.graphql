@@ -1,0 +1,14 @@
+query getLastRepositories($number: Int) {
+    viewer {
+        ...UserDetails
+        repositories(last: $number) {
+            ...RepositoriesDetails
+        }
+    }
+}
+
+query findUser($byName: String!) {
+    user(login: $byName) {
+        ...UserDetails
+    }
+}

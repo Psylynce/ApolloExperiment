@@ -19,6 +19,13 @@
 		5C28E5B2205ABC0F000C2C28 /* Dictionary+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5B1205ABC0F000C2C28 /* Dictionary+Extensions.swift */; };
 		5C28E5B5205AC6E9000C2C28 /* GithubModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5B4205AC6E9000C2C28 /* GithubModels.swift */; };
 		5C28E5B8205AC71A000C2C28 /* GithubQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5B7205AC71A000C2C28 /* GithubQueries.swift */; };
+		5C28E5BF205ACEDC000C2C28 /* Apollo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C28E5BE205ACEDC000C2C28 /* Apollo.swift */; };
+		5C28E5C3205AD542000C2C28 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C28E5BB205ACE80000C2C28 /* Apollo.framework */; };
+		5C28E5C5205ADE0F000C2C28 /* Repositories.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5C28E5C4205ADE0F000C2C28 /* Repositories.graphql */; };
+		5C28E5C7205ADE7F000C2C28 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 5C28E5C6205ADE7E000C2C28 /* schema.json */; };
+		5C88B0A6205AE6A100A27037 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88B0A5205AE6A100A27037 /* API.swift */; };
+		5C88B0A9205BFD0B00A27037 /* FragmentConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88B0A8205BFD0B00A27037 /* FragmentConvertible.swift */; };
+		5C88B0AB205C020200A27037 /* Fragments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5C88B0AA205C020200A27037 /* Fragments.graphql */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +43,13 @@
 		5C28E5B1205ABC0F000C2C28 /* Dictionary+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extensions.swift"; sourceTree = "<group>"; };
 		5C28E5B4205AC6E9000C2C28 /* GithubModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubModels.swift; sourceTree = "<group>"; };
 		5C28E5B7205AC71A000C2C28 /* GithubQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubQueries.swift; sourceTree = "<group>"; };
+		5C28E5BB205ACE80000C2C28 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
+		5C28E5BE205ACEDC000C2C28 /* Apollo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apollo.swift; sourceTree = "<group>"; };
+		5C28E5C4205ADE0F000C2C28 /* Repositories.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Repositories.graphql; sourceTree = "<group>"; };
+		5C28E5C6205ADE7E000C2C28 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = schema.json; path = ApolloExperiment/Apollo/schema.json; sourceTree = SOURCE_ROOT; };
+		5C88B0A5205AE6A100A27037 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		5C88B0A8205BFD0B00A27037 /* FragmentConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentConvertible.swift; sourceTree = "<group>"; };
+		5C88B0AA205C020200A27037 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C28E5C3205AD542000C2C28 /* Apollo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +69,7 @@
 			children = (
 				5C28E592205AB6A7000C2C28 /* ApolloExperiment */,
 				5C28E591205AB6A7000C2C28 /* Products */,
+				5C28E5BA205ACE80000C2C28 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,12 +84,16 @@
 		5C28E592205AB6A7000C2C28 /* ApolloExperiment */ = {
 			isa = PBXGroup;
 			children = (
+				5C88B0A7205BFA6E00A27037 /* Protocols */,
+				5C28E5BD205ACECF000C2C28 /* Apollo */,
 				5C28E5B6205AC70A000C2C28 /* Queries */,
 				5C28E5B3205AC6C8000C2C28 /* Models */,
 				5C28E5B0205ABBFA000C2C28 /* Extensions */,
 				5C28E5A7205AB948000C2C28 /* Networking */,
 				5C28E593205AB6A7000C2C28 /* AppDelegate.swift */,
 				5C28E595205AB6A7000C2C28 /* FirstViewController.swift */,
+				5C88B0AA205C020200A27037 /* Fragments.graphql */,
+				5C28E5C4205ADE0F000C2C28 /* Repositories.graphql */,
 				5C28E597205AB6A7000C2C28 /* SecondViewController.swift */,
 				5C28E599205AB6A7000C2C28 /* Main.storyboard */,
 				5C28E59C205AB6A7000C2C28 /* Assets.xcassets */,
@@ -117,6 +137,32 @@
 			path = Queries;
 			sourceTree = "<group>";
 		};
+		5C28E5BA205ACE80000C2C28 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C28E5BB205ACE80000C2C28 /* Apollo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5C28E5BD205ACECF000C2C28 /* Apollo */ = {
+			isa = PBXGroup;
+			children = (
+				5C28E5BE205ACEDC000C2C28 /* Apollo.swift */,
+				5C28E5C6205ADE7E000C2C28 /* schema.json */,
+				5C88B0A5205AE6A100A27037 /* API.swift */,
+			);
+			path = Apollo;
+			sourceTree = "<group>";
+		};
+		5C88B0A7205BFA6E00A27037 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5C88B0A8205BFD0B00A27037 /* FragmentConvertible.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,9 +170,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C28E5A4205AB6A7000C2C28 /* Build configuration list for PBXNativeTarget "ApolloExperiment" */;
 			buildPhases = (
+				5C28E5C0205ACF2D000C2C28 /* Generate Apollo GraphQL API */,
 				5C28E58C205AB6A7000C2C28 /* Sources */,
 				5C28E58D205AB6A7000C2C28 /* Frameworks */,
 				5C28E58E205AB6A7000C2C28 /* Resources */,
+				5C28E5B9205ACD20000C2C28 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -177,6 +225,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C28E5A0205AB6A7000C2C28 /* LaunchScreen.storyboard in Resources */,
+				5C88B0AB205C020200A27037 /* Fragments.graphql in Resources */,
+				5C28E5C7205ADE7F000C2C28 /* schema.json in Resources */,
+				5C28E5C5205ADE0F000C2C28 /* Repositories.graphql in Resources */,
 				5C28E59D205AB6A7000C2C28 /* Assets.xcassets in Resources */,
 				5C28E59B205AB6A7000C2C28 /* Main.storyboard in Resources */,
 			);
@@ -184,15 +235,49 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5C28E5B9205ACD20000C2C28 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		5C28E5C0205ACF2D000C2C28 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/${TARGET_NAME}\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema Apollo/schema.json --output Apollo/API.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5C28E58C205AB6A7000C2C28 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C88B0A6205AE6A100A27037 /* API.swift in Sources */,
 				5C28E5AB205AB99A000C2C28 /* Query.swift in Sources */,
 				5C28E5AD205AB9B1000C2C28 /* GraphQLOperation.swift in Sources */,
 				5C28E598205AB6A7000C2C28 /* SecondViewController.swift in Sources */,
 				5C28E5B8205AC71A000C2C28 /* GithubQueries.swift in Sources */,
+				5C88B0A9205BFD0B00A27037 /* FragmentConvertible.swift in Sources */,
+				5C28E5BF205ACEDC000C2C28 /* Apollo.swift in Sources */,
 				5C28E5B2205ABC0F000C2C28 /* Dictionary+Extensions.swift in Sources */,
 				5C28E5B5205AC6E9000C2C28 /* GithubModels.swift in Sources */,
 				5C28E594205AB6A7000C2C28 /* AppDelegate.swift in Sources */,
@@ -336,6 +421,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H4W46R8JF7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ApolloExperiment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jrp.ApolloExperiment;
@@ -351,6 +440,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H4W46R8JF7;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = ApolloExperiment/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jrp.ApolloExperiment;

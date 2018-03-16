@@ -1,0 +1,19 @@
+fragment UserDetails on User {
+    id
+    name
+    email
+    avatarUrl
+    createdAt
+    login
+}
+
+fragment RepositoriesDetails on RepositoryConnection {
+    nodes {
+        ...RepositoryDetails
+    }
+}
+
+fragment RepositoryDetails on Repository {
+    id
+    name
+}

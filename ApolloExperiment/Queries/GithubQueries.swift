@@ -11,7 +11,7 @@ import Foundation
 struct GithubQueries {
 
     static func getCurrentUsersRepositories(last: Int) -> GithubAPI {
-        let query = "query { viewer { name repositories(last: \(last)) { nodes { name }}}}"
+        let query = "query { viewer { name email avatarUrl login createdAt repositories(last: \(last)) { nodes { name }}}}"
 
         return GithubAPI(query: query)
     }

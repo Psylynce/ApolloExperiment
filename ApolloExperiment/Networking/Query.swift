@@ -18,8 +18,6 @@ final class GithubAPI: Query {
     override init(url: URL = URL(string: "https://api.github.com/graphql")!, query: String) {
         super.init(url: url, query: query)
     }
-
-
 }
 
 struct QueryConfiguration {
