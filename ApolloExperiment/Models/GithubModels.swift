@@ -17,6 +17,10 @@ struct Viewer: Decodable {
     let viewer: User
 }
 
+struct UserContainer: Decodable {
+    let user: User
+}
+
 struct User: Decodable {
     let name: String
     let email: String
@@ -62,5 +66,69 @@ extension Node: FragmentConvertible {
         guard let details = fragment as? RepositoryDetails else { fatalError() }
 
         return Node(name: details.name)
+    }
+}
+
+struct SearchResultContainer: Decodable {
+    let search: SearchResult
+}
+
+struct SearchResult: Decodable {
+    var pageInfo: Paging
+    var edges: [SearchResultEdge]
+}
+
+extension SearchResult {
+    init(fragment: SearchDetails) {
+        pageInfo = Paging(fragment: fragment.pageInfo.fragments.pageDetails)
+        edges = fragment.edges?
+            .flatMap { $0?.fragments.edgeResultDetails }
+            .flatMap { SearchResultEdge(fragment: $0) } ?? []
+    }
+}
+
+struct SearchResultEdge: Decodable {
+    let cursor: String
+    let node: Repository?
+}
+
+extension SearchResultEdge {
+    init(fragment: EdgeResultDetails) {
+        cursor = fragment.cursor
+        if let details = fragment.node?.asRepository?.fragments.repositoryDetails {
+            node = Repository(fragment: details)
+        } else {
+            node = nil
+        }
+    }
+}
+
+struct Paging: Decodable {
+    let startCursor: String?
+    let endCursor: String?
+    let hasNextPage: Bool
+    let hasPreviousPage: Bool
+}
+
+extension Paging {
+    init(fragment: PageDetails) {
+        startCursor = fragment.startCursor
+        endCursor = fragment.endCursor
+        hasNextPage = fragment.hasNextPage
+        hasPreviousPage = fragment.hasPreviousPage
+    }
+}
+
+struct Repository: Decodable {
+    let id: String
+    let name: String
+    let url: URL
+}
+
+extension Repository {
+    init(fragment: RepositoryDetails) {
+        id = fragment.id
+        name = fragment.name
+        url = URL(string: fragment.url)!
     }
 }

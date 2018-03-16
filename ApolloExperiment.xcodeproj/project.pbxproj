@@ -26,6 +26,8 @@
 		5C88B0A6205AE6A100A27037 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88B0A5205AE6A100A27037 /* API.swift */; };
 		5C88B0A9205BFD0B00A27037 /* FragmentConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88B0A8205BFD0B00A27037 /* FragmentConvertible.swift */; };
 		5C88B0AB205C020200A27037 /* Fragments.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5C88B0AA205C020200A27037 /* Fragments.graphql */; };
+		5C88B0AD205C18C200A27037 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88B0AC205C18C200A27037 /* UserInfoViewController.swift */; };
+		5C88B0AF205C52CD00A27037 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88B0AE205C52CD00A27037 /* SearchResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		5C88B0A5205AE6A100A27037 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		5C88B0A8205BFD0B00A27037 /* FragmentConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FragmentConvertible.swift; sourceTree = "<group>"; };
 		5C88B0AA205C020200A27037 /* Fragments.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
+		5C88B0AC205C18C200A27037 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		5C88B0AE205C52CD00A27037 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				5C88B0AA205C020200A27037 /* Fragments.graphql */,
 				5C28E5C4205ADE0F000C2C28 /* Repositories.graphql */,
 				5C28E597205AB6A7000C2C28 /* SecondViewController.swift */,
+				5C88B0AC205C18C200A27037 /* UserInfoViewController.swift */,
+				5C88B0AE205C52CD00A27037 /* SearchResultsViewController.swift */,
 				5C28E599205AB6A7000C2C28 /* Main.storyboard */,
 				5C28E59C205AB6A7000C2C28 /* Assets.xcassets */,
 				5C28E59E205AB6A7000C2C28 /* LaunchScreen.storyboard */,
@@ -276,7 +282,9 @@
 				5C28E5AD205AB9B1000C2C28 /* GraphQLOperation.swift in Sources */,
 				5C28E598205AB6A7000C2C28 /* SecondViewController.swift in Sources */,
 				5C28E5B8205AC71A000C2C28 /* GithubQueries.swift in Sources */,
+				5C88B0AF205C52CD00A27037 /* SearchResultsViewController.swift in Sources */,
 				5C88B0A9205BFD0B00A27037 /* FragmentConvertible.swift in Sources */,
+				5C88B0AD205C18C200A27037 /* UserInfoViewController.swift in Sources */,
 				5C28E5BF205ACEDC000C2C28 /* Apollo.swift in Sources */,
 				5C28E5B2205ABC0F000C2C28 /* Dictionary+Extensions.swift in Sources */,
 				5C28E5B5205AC6E9000C2C28 /* GithubModels.swift in Sources */,

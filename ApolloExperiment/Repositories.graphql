@@ -10,5 +10,14 @@ query getLastRepositories($number: Int) {
 query findUser($byName: String!) {
     user(login: $byName) {
         ...UserDetails
+        repositories(last: 3) {
+            ...RepositoriesDetails
+        }
+    }
+}
+
+query search($query: String!, $first: Int, $after: String, $type: SearchType!) {
+    search(query: $query, first: $first, after: $after, type: $type) {
+        ...SearchDetails
     }
 }

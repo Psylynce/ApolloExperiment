@@ -20,19 +20,24 @@ let apollo: ApolloClient = {
     return client
 }()
 
-final class ApolloWrapper {
+final class ApolloWrapper<T: Decodable> {
     typealias ApolloCompletion<T> = (Result<T, NetworkError>) -> Void
 
-    static func fetch<Query: GraphQLQuery>(query: Query, completion: ApolloCompletion<Query.Data>?) {
+    func fetch<Query: GraphQLQuery>(query: Query, completion: ApolloCompletion<T>?) {
         apollo.fetch(query: query, cachePolicy: CachePolicy.fetchIgnoringCacheData) { (result, error) in
             if let error = error {
                 completion?(.failure(NetworkError.error(error)))
                 return
             }
-
             guard let data = result?.data else { return }
 
-            completion?(.success(data))
+            do {
+                let object = try JSONDecoder.iso.decode(T.self, from: data.jsonObject.toData())
+                completion?(.success(object))
+            } catch {
+                print("Error decoding: \(T.self) with error \(error)")
+                completion?(.failure(NetworkError.error(error)))
+            }
         }
     }
 }

@@ -14,6 +14,21 @@ class FirstViewController: UIViewController {
 
     var nodes = [Node]()
 
+    private lazy var searchController: UISearchController = {
+        let resultsController = SearchResultsViewController.viewController()
+        let search = UISearchController(searchResultsController: resultsController)
+        search.searchResultsUpdater = resultsController
+        definesPresentationContext = true
+        
+        return search
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationItem.searchController = searchController
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -24,6 +39,13 @@ class FirstViewController: UIViewController {
             }
 
             guard let data = result?.data else { return }
+
+            do {
+                let user = try JSONDecoder.iso.decode(Viewer.self, from: data.jsonObject.toData())
+                print(user.viewer.name)
+            } catch {
+                print(error)
+            }
 
             let user = User.convert(fragment: data.viewer.fragments.userDetails)
             self.navigationItem.title = "\(user.name) | \(user.login)"

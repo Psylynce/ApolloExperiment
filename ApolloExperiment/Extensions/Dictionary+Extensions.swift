@@ -24,3 +24,12 @@ extension Dictionary {
         return String(data: toData(options: .prettyPrinted), encoding: .utf8) ?? ""
     }
 }
+
+extension JSONDecoder {
+    static let iso: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+
+        return decoder
+    }()
+}

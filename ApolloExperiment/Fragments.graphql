@@ -16,4 +16,34 @@ fragment RepositoriesDetails on RepositoryConnection {
 fragment RepositoryDetails on Repository {
     id
     name
+    url
+}
+
+fragment PageDetails on PageInfo {
+    endCursor
+    hasNextPage
+    hasPreviousPage
+    startCursor
+}
+
+fragment SearchDetails on SearchResultItemConnection {
+    pageInfo {
+        ...PageDetails
+    }
+    ...SearchResultDetails
+}
+
+fragment SearchResultDetails on SearchResultItemConnection {
+    edges {
+        ...EdgeResultDetails
+    }
+}
+
+fragment EdgeResultDetails on SearchResultItemEdge {
+    node {
+        ... on Repository {
+            ...RepositoryDetails
+        }
+    }
+    cursor
 }
