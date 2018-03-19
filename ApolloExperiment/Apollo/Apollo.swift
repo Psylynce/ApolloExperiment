@@ -12,7 +12,9 @@ import Apollo
 let apollo: ApolloClient = {
     let configuration = URLSessionConfiguration.default
 
-    configuration.httpAdditionalHeaders = ["Authorization": "Bearer c22ca9a5db39e2afda185cc1423308c118d94aa4"]
+    if let githubToken = TokenManager.shared.githubOAuth {
+        configuration.httpAdditionalHeaders = ["Authorization": "Bearer \(githubToken)"]
+    }
     let url = URL(string: "https://api.github.com/graphql")!
     let transport = HTTPNetworkTransport(url: url, configuration: configuration)
     let client = ApolloClient(networkTransport: transport)
@@ -24,7 +26,7 @@ final class ApolloWrapper<T: Decodable> {
     typealias ApolloCompletion<T> = (Result<T, NetworkError>) -> Void
 
     func fetch<Query: GraphQLQuery>(query: Query, completion: ApolloCompletion<T>?) {
-        apollo.fetch(query: query, cachePolicy: CachePolicy.fetchIgnoringCacheData) { (result, error) in
+        apollo.fetch(query: query, cachePolicy: .fetchIgnoringCacheData) { (result, error) in
             if let error = error {
                 completion?(.failure(NetworkError.error(error)))
                 return

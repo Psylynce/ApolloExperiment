@@ -39,14 +39,17 @@ class Query {
     func request() -> URLRequest {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
-        request.allHTTPHeaderFields = [
-            "Authorization": "bearer c22ca9a5db39e2afda185cc1423308c118d94aa4",
+        var headerFields = [
             "Content-Type": "application/json; charset=utf-8"
         ]
+
+        if let githubToken = TokenManager.shared.githubOAuth {
+            headerFields["Authorization"] = "Bearer \(githubToken)"
+        }
+        request.allHTTPHeaderFields = headerFields
+
         body["query"] = query
         request.httpBody = body.toData()
         return request
     }
 }
-
-// c22ca9a5db39e2afda185cc1423308c118d94aa4
