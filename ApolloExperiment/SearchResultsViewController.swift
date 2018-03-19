@@ -25,6 +25,28 @@ final class SearchResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+
+    private func search(after: String?) {
+        let isPaging = after != nil
+
+        let query = SearchQuery(query: currentText, first: 20, after: after, type: .repository)
+        ApolloWrapper<SearchResultContainer>().fetch(query: query) { [weak self] result in
+            guard let strongSelf = self else { return }
+
+            switch result {
+            case let .success(container):
+                strongSelf.paging = container.search.pageInfo
+                if isPaging {
+                    strongSelf.results += container.search.edges
+                } else {
+                    strongSelf.results = container.search.edges
+                }
+                strongSelf.tableView.reloadData()
+            case .failure:
+                return
+            }
+        }
+    }
 }
 
 extension SearchResultsViewController: UITableViewDataSource {
@@ -48,21 +70,7 @@ extension SearchResultsViewController: UITableViewDelegate {
         let lastRow = tableView.numberOfRows(inSection: indexPath.section) - 1
         guard indexPath.row == lastRow && paging?.hasNextPage == true else { return }
 
-        let lastResult = results[lastRow]
-
-        let query = SearchQuery(query: currentText, first: 20, after: lastResult.cursor, type: .repository)
-        ApolloWrapper<SearchResultContainer>().fetch(query: query) { [weak self] result in
-            guard let strongSelf = self else { return }
-
-            switch result {
-            case let .success(container):
-                strongSelf.paging = container.search.pageInfo
-                strongSelf.results += container.search.edges
-                strongSelf.tableView.reloadData()
-            case .failure:
-                return
-            }
-        }
+        search(after: paging?.endCursor)
     }
 }
 
@@ -71,19 +79,6 @@ extension SearchResultsViewController: UISearchResultsUpdating {
         guard let text = searchController.searchBar.text else { return }
 
         currentText = text
-
-        let query = SearchQuery(query: currentText, first: 20, after: nil, type: .repository)
-        ApolloWrapper<SearchResultContainer>().fetch(query: query) { [weak self] result in
-            guard let strongSelf = self else { return }
-
-            switch result {
-            case let .success(container):
-                strongSelf.paging = container.search.pageInfo
-                strongSelf.results = container.search.edges
-                strongSelf.tableView.reloadData()
-            case .failure:
-                return
-            }
-        }
+        search(after: nil)
     }
 }
